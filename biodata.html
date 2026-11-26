@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Pengisian Biodata</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: #1f2937;
+  }
+  .card {
+    width: 100%;
+    max-width: 560px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
+    color: #fff;
+    text-align: center;
+    padding: 28px 20px;
+  }
+  .header h1 { font-size: 24px; margin-bottom: 6px; }
+  .header p { opacity: .9; font-size: 14px; }
+  form { padding: 26px; }
+  label {
+    display: block;
+    font-weight: 600;
+    margin: 16px 0 7px;
+    font-size: 14px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #f8fafc;
+    transition: .2s;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+  }
+  textarea { resize: vertical; min-height: 90px; }
+  button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+  }
+  button:hover { opacity: .92; transform: translateY(-1px); }
+  .back {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .back:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    padding: 14px;
+    font-size: 13px;
+    color: #64748b;
+    border-top: 1px solid #e5e7eb;
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <section class="header">
+      <h1>Form Pengisian Biodata</h1>
+      <p>Silakan lengkapi data diri Anda</p>
+    </section>
+
+    <form action="#" method="post">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+
+      <label for="ttl">Tempat, Tanggal Lahir</label>
+      <input type="text" id="ttl" name="ttl" placeholder="Contoh: Samarinda, 1 Januari 2000" required>
+
+      <label for="alamat">Alamat</label>
+      <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap" required></textarea>
+
+      <label for="hobi">Hobi</label>
+      <textarea id="hobi" name="hobi" placeholder="Masukkan hobi Anda" required></textarea>
+
+      <button type="submit">Kirim Biodata</button>
+      <a class="back" href="index.html">← Kembali ke Portal</a>
+    </form>
+  </main>
+
+  <footer>© 2026 Portal Tugas</footer>
+</body>
+</html>
