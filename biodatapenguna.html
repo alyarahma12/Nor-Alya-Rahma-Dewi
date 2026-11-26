@@ -1,202 +1,208 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Form, Slide, dan Looker Studio</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #eef2ff, #f8fafc);
-    color: #1f2937;
-    padding: 24px;
-  }
-  .container { max-width: 1000px; margin: 0 auto; }
-  .header {
-    background: linear-gradient(120deg, #2563eb, #7c3aed);
-    color: #fff;
-    text-align: center;
-    padding: 34px 24px;
-    border-radius: 18px;
-    margin-bottom: 22px;
-  }
-  .header h1 { font-size: 28px; margin-bottom: 6px; }
-  .header p { opacity: .92; }
-  .section {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 10px 26px rgba(15, 23, 42, .10);
-    padding: 26px;
-    margin-bottom: 22px;
-  }
-  h2 { font-size: 20px; margin-bottom: 14px; color: #1d4ed8; }
-  .btn {
-    display: inline-block;
-    padding: 13px 26px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(120deg, #2563eb, #7c3aed);
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: .2s;
-  }
-  .btn:hover { transform: translateY(-2px); opacity: .94; }
-  form { margin-top: 18px; display: none; }
-  form.show { display: block; }
-  label { display: block; font-weight: 600; margin: 14px 0 6px; font-size: 14px; }
-  input, textarea {
-    width: 100%;
-    padding: 11px 13px;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: inherit;
-    background: #f8fafc;
-  }
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: #2563eb;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
-  }
-  textarea { min-height: 80px; resize: vertical; }
-  .submit {
-    margin-top: 18px;
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #16a34a;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .submit:hover { background: #15803d; }
-  .splide__slide {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    border-radius: 14px;
-    padding: 18px;
-  }
-  .splide__slide h3 { color: #1d4ed8; margin-bottom: 8px; }
-  .splide__slide p { margin: 4px 0; font-size: 15px; }
-  .empty { color: #64748b; font-size: 14px; }
-  .looker {
-    width: 100%;
-    height: 520px;
-    border: 1px solid #cbd5e1;
-    border-radius: 12px;
-    background: #f8fafc;
-  }
-  .note { margin-top: 10px; font-size: 13px; color: #64748b; }
-  footer { text-align: center; color: #64748b; font-size: 13px; padding: 10px 0 20px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form & Dashboard Data</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f9;
+      color: #1f2937;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: #6b7280;
+    }
+
+    .button-area {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0 32px;
+    }
+
+    .btn-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1a73e8;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.25);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-form:hover {
+      background: #1558b0;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+    }
+
+    .section-title a {
+      font-size: 14px;
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .section-title a:hover {
+      text-decoration: underline;
+    }
+
+    .window {
+      width: 100%;
+      height: 650px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 14px;
+      }
+
+      .window {
+        height: 500px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <header class="header">
-      <h1>Portal Data &amp; Visualisasi</h1>
-      <p>Isi formulir, lihat hasil dalam slide, dan pantau data di Looker Studio</p>
+
+    <header>
+      <h1>Form Pengisian & Dashboard Data</h1>
+      <p class="subtitle">
+        Klik tombol untuk mengisi form, lalu lihat hasil pengisian dan visualisasi data di bawah.
+      </p>
     </header>
 
-    <section class="section" id="form-section">
-      <h2>Form Pengisian Biodata</h2>
-      <button class="btn" id="showForm" type="button">Isi Form Biodata</button>
+    <!-- Tombol menuju Google Form -->
+    <div class="button-area">
+      <a
+        class="btn-form"
+        href="https://docs.google.com/forms/d/e/GANTI_DENGAN_ID_FORM_ANDA/viewform"
+        target="_blank"
+        rel="noopener"
+      >
+        📝 Isi Form Sekarang
+      </a>
+    </div>
 
-      <form id="biodataForm">
-        <label for="nama">Nama Lengkap</label>
-        <input type="text" id="nama" required placeholder="Masukkan nama lengkap">
-
-        <label for="ttl">Tempat, Tanggal Lahir</label>
-        <input type="text" id="ttl" required placeholder="Contoh: Kotabaru, 14 Juni 2006">
-
-        <label for="alamat">Alamat</label>
-        <textarea id="alamat" required placeholder="Masukkan alamat lengkap"></textarea>
-
-        <label for="hobi">Hobi</label>
-        <textarea id="hobi" required placeholder="Masukkan hobi Anda"></textarea>
-
-        <button class="submit" type="submit">Kirim dan Tampilkan di Slide</button>
-      </form>
-    </section>
-
+    <!-- Window Spreadsheet hasil form -->
     <section class="section">
-      <h2>Hasil Form</h2>
-      <div id="splide" class="splide">
-        <div class="splide__track">
-          <ul class="splide__list" id="slideList">
-            <li class="splide__slide">
-              <h3>Belum ada data</h3>
-              <p class="empty">Klik “Isi Form Biodata”, lengkapi data, lalu klik kirim.</p>
-            </li>
-          </ul>
-        </div>
+      <div class="section-title">
+        <h2>📊 Spreadsheet Hasil Form</h2>
+        <a
+          href="https://docs.google.com/spreadsheets/d/GANTI_DENGAN_ID_SPREADSHEET_ANDA/edit"
+          target="_blank"
+          rel="noopener"
+        >
+          Buka Spreadsheet
+        </a>
+      </div>
+
+      <div class="window">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/GANTI_DENGAN_ID_SPREADSHEET_ANDA/pubhtml?widget=true&amp;headers=false"
+          title="Spreadsheet hasil form"
+          loading="lazy"
+        ></iframe>
       </div>
     </section>
 
+    <!-- Window Looker Studio -->
     <section class="section">
-      <h2>Looker Studio</h2>
-      <iframe class="looker" 
-        src="https://lookerstudio.google.com/embed/reporting/CONTOH_ID_LAPORAN/page/CONTOH_HALAMAN"
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
-      <p class="note">Ganti bagian <b>CONTOH_ID_LAPORAN</b> dan <b>CONTOH_HALAMAN</b> dengan link embed Looker Studio milik Anda.</p>
+      <div class="section-title">
+        <h2>📈 Looker Studio Dashboard</h2>
+        <a
+          href="https://lookerstudio.google.com/reporting/GANTI_DENGAN_ID_REPORT_ANDA"
+          target="_blank"
+          rel="noopener"
+        >
+          Buka Looker Studio
+        </a>
+      </div>
+
+      <div class="window">
+        <iframe
+          src="https://lookerstudio.google.com/embed/reporting/GANTI_DENGAN_ID_REPORT_ANDA/page/GANTI_PAGE_ID"
+          title="Looker Studio dashboard"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
     </section>
 
-    <footer>© 2026 Portal Data &amp; Visualisasi</footer>
+    <footer>
+      Ganti bagian <strong>GANTI_DENGAN_ID_...</strong> dengan ID Google Form, Spreadsheet, dan Looker Studio Anda.
+    </footer>
+
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-  <script>
-    document.getElementById("showForm").addEventListener("click", function () {
-      document.getElementById("biodataForm").classList.toggle("show");
-      document.getElementById("biodataForm").scrollIntoView({ behavior: "smooth" });
-    });
-
-    const form = document.getElementById("biodataForm");
-    const slideList = document.getElementById("slideList");
-    let splide = new Splide("#splide", {
-      type: "slide",
-      perPage: 1,
-      gap: "1rem",
-      autoplay: false,
-      pagination: true,
-      arrows: true
-    }).mount();
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const nama = document.getElementById("nama").value;
-      const ttl = document.getElementById("ttl").value;
-      const alamat = document.getElementById("alamat").value;
-      const hobi = document.getElementById("hobi").value;
-
-      const emptySlide = slideList.querySelector(".empty");
-      if (emptySlide) emptySlide.parentElement.remove();
-
-      const slide = document.createElement("li");
-      slide.className = "splide__slide";
-      slide.innerHTML = `
-        <h3>${nama}</h3>
-        <p><b>Tempat, Tanggal Lahir:</b> ${ttl}</p>
-        <p><b>Alamat:</b> ${alamat}</p>
-        <p><b>Hobi:</b> ${hobi}</p>
-      `;
-      slideList.appendChild(slide);
-
-      splide.refresh();
-      splide.go(slideList.children.length - 1);
-      form.reset();
-      document.getElementById("splide").scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
 </body>
 </html>
