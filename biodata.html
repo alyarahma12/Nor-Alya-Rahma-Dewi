@@ -3,22 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Pengisian Biodata</title>
+<title>Biodata Nor Alya Rahma Dewi</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "Segoe UI", Arial, sans-serif;
     background: linear-gradient(135deg, #eef2ff, #f8fafc);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
     color: #1f2937;
+    padding: 24px;
   }
   .card {
-    width: 100%;
-    max-width: 560px;
+    max-width: 900px;
+    margin: 0 auto;
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 12px 30px rgba(15, 23, 42, .12);
@@ -28,93 +24,116 @@
     background: linear-gradient(120deg, #2563eb, #7c3aed);
     color: #fff;
     text-align: center;
-    padding: 28px 20px;
+    padding: 34px 24px;
   }
-  .header h1 { font-size: 24px; margin-bottom: 6px; }
-  .header p { opacity: .9; font-size: 14px; }
-  form { padding: 26px; }
-  label {
-    display: block;
-    font-weight: 600;
-    margin: 16px 0 7px;
-    font-size: 14px;
-  }
-  label:first-of-type { margin-top: 0; }
-  input, textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: inherit;
-    background: #f8fafc;
-    transition: .2s;
-  }
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: #2563eb;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
-  }
-  textarea { resize: vertical; min-height: 90px; }
-  button {
-    width: 100%;
-    margin-top: 22px;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(120deg, #2563eb, #7c3aed);
-    color: #fff;
+  .header h1 { font-size: 28px; margin-bottom: 6px; }
+  .header p { opacity: .92; }
+  .content { padding: 26px; }
+  h2 {
     font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2563eb;
+    margin: 24px 0 12px;
   }
-  button:hover { opacity: .92; transform: translateY(-1px); }
+  h2:first-child { margin-top: 0; }
+  table { width: 100%; border-collapse: collapse; }
+  td {
+    padding: 11px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  td:first-child { width: 200px; font-weight: 600; color: #374151; }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .gallery img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #e5e7eb;
+    border: 1px solid #d1d5db;
+  }
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 14px;
+  }
+  video {
+    width: 100%;
+    border-radius: 12px;
+    background: #000;
+    border: 1px solid #d1d5db;
+  }
+  .note {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6b7280;
+  }
   .back {
-    display: block;
-    text-align: center;
-    margin-top: 16px;
+    display: inline-block;
+    margin-top: 22px;
     color: #2563eb;
     text-decoration: none;
     font-weight: 600;
-    font-size: 14px;
   }
   .back:hover { text-decoration: underline; }
   footer {
     text-align: center;
-    padding: 14px;
+    padding: 16px;
     font-size: 13px;
-    color: #64748b;
+    color: #6b7280;
     border-top: 1px solid #e5e7eb;
+  }
+  @media (max-width: 520px) {
+    td:first-child { width: 145px; }
+    .content { padding: 20px; }
   }
 </style>
 </head>
 <body>
   <main class="card">
     <section class="header">
-      <h1>Form Pengisian Biodata</h1>
-      <p>Silakan lengkapi data diri Anda</p>
+      <h1>Nor Alya Rahma Dewi</h1>
+      <p>Biodata Diri</p>
     </section>
 
-    <form action="#" method="post">
-      <label for="nama">Nama Lengkap</label>
-      <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+    <section class="content">
+      <h2>Biodata Diri</h2>
+      <table>
+        <tr><td>Nama</td><td>Nor Alya Rahma Dewi</td></tr>
+        <tr><td>Tempat, Tanggal Lahir</td><td>Kotabaru, 14 Juni 2006</td></tr>
+        <tr><td>Alamat</td><td>Jl. Dahlina Raya</td></tr>
+        <tr><td>Hobi</td><td>Memasak</td></tr>
+      </table>
 
-      <label for="ttl">Tempat, Tanggal Lahir</label>
-      <input type="text" id="ttl" name="ttl" placeholder="Contoh: Samarinda, 1 Januari 2000" required>
+      <h2>5 Foto</h2>
+      <div class="gallery">
+        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto2.jpg" alt="Foto 2">
+        <img src="foto3.jpg" alt="Foto 3">
+        <img src="foto4.jpg" alt="Foto 4">
+        <img src="foto5.jpg" alt="Foto 5">
+      </div>
+      <p class="note">Simpan foto dengan nama <b>foto1.jpg</b> sampai <b>foto5.jpg</b> di folder yang sama dengan file ini.</p>
 
-      <label for="alamat">Alamat</label>
-      <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap" required></textarea>
+      <h2>5 Video</h2>
+      <div class="videos">
+        <video src="video1.mp4" controls></video>
+        <video src="video2.mp4" controls></video>
+        <video src="video3.mp4" controls></video>
+        <video src="video4.mp4" controls></video>
+        <video src="video5.mp4" controls></video>
+      </div>
+      <p class="note">Simpan video dengan nama <b>video1.mp4</b> sampai <b>video5.mp4</b> di folder yang sama dengan file ini.</p>
 
-      <label for="hobi">Hobi</label>
-      <textarea id="hobi" name="hobi" placeholder="Masukkan hobi Anda" required></textarea>
-
-      <button type="submit">Kirim Biodata</button>
       <a class="back" href="index.html">← Kembali ke Portal</a>
-    </form>
+    </section>
   </main>
 
-  <footer>© 2026 Portal Tugas</footer>
+  <footer>© 2026 Nor Alya Rahma Dewi</footer>
 </body>
 </html>
