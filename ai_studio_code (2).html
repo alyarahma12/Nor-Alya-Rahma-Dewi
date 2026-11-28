@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Tugas - Pink Butterfly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --pink-bg-1: #fff5f9;
+      --pink-bg-2: #ffe6f1;
+      --pink-primary: #ec4899;
+      --pink-dark: #db2777;
+      --pink-light: #fdf2f8;
+      --pink-badge: #fce7f3;
+      --pink-border: #fbcfe8;
+      --text-main: #3b1d2e;
+      --text-muted: #835a70;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      background: linear-gradient(135deg, var(--pink-bg-1) 0%, var(--pink-bg-2) 100%);
+      color: var(--text-main);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Hiasan kupu-kupu melayang di latar belakang */
+    .bg-butterfly {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0.22;
+      z-index: 0;
+      animation: floatSlow 7s ease-in-out infinite;
+    }
+
+    .bg-butterfly.b1 {
+      top: 8%;
+      left: 6%;
+      width: 72px;
+      transform: rotate(-18deg);
+    }
+
+    .bg-butterfly.b2 {
+      bottom: 10%;
+      right: 6%;
+      width: 90px;
+      transform: rotate(15deg);
+      animation-delay: -3s;
+    }
+
+    .bg-butterfly.b3 {
+      top: 18%;
+      right: 10%;
+      width: 48px;
+      transform: rotate(24deg);
+      animation-delay: -1.5s;
+    }
+
+    .bg-butterfly.b4 {
+      bottom: 16%;
+      left: 8%;
+      width: 54px;
+      transform: rotate(-22deg);
+      animation-delay: -4.5s;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(4deg);
+      }
+    }
+
+    /* Container utama */
+    .portal-container {
+      width: 100%;
+      max-width: 820px;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 20px 50px rgba(236, 72, 153, 0.14), 0 4px 16px rgba(219, 39, 119, 0.06);
+      border: 1.5px solid #ffd6ea;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Gradient Pink */
+    .portal-header {
+      background: linear-gradient(120deg, #ff66a3 0%, #f43f8e 50%, #d946ef 100%);
+      padding: 44px 28px;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dekorasi kupu-kupu transparan di dalam header */
+    .header-deco {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.2;
+    }
+
+    .header-deco.left {
+      left: 24px;
+      top: 18px;
+      width: 78px;
+      transform: rotate(-20deg);
+    }
+
+    .header-deco.right {
+      right: 26px;
+      bottom: 14px;
+      width: 92px;
+      transform: rotate(16deg);
+    }
+
+    .header-deco.top-right {
+      right: 120px;
+      top: 14px;
+      width: 36px;
+      opacity: 0.25;
+      transform: rotate(-12deg);
+    }
+
+    .header-title-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .portal-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 10px rgba(157, 23, 77, 0.25);
+    }
+
+    .portal-header p {
+      margin-top: 8px;
+      font-size: 0.96rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.94);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Area Menu Tugas */
+    .portal-body {
+      padding: 30px 28px;
+      background: linear-gradient(180deg, #ffffff 0%, #fff9fc 100%);
+    }
+
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    /* Kartu Tugas */
+    .task-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 20px;
+      background: #ffffff;
+      border: 1.5px solid var(--pink-border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.04);
+    }
+
+    .task-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--pink-primary);
+      background: var(--pink-light);
+      box-shadow: 0 12px 24px rgba(236, 72, 153, 0.14);
+    }
+
+    /* Kupu-kupu kecil di pojok kartu saat hover */
+    .card-butterfly {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      width: 22px;
+      height: 22px;
+      opacity: 0.25;
+      transition: all 0.25s ease;
+    }
+
+    .task-card:hover .card-butterfly {
+      opacity: 0.85;
+      transform: scale(1.15) rotate(10deg);
+    }
+
+    /* Tugas 5 berada di tengah agar rapi pada 2 kolom */
+    .task-card.featured-center {
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: calc(50% - 9px);
+      justify-self: center;
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: var(--pink-badge);
+      border: 1px solid #fbcfe8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.45rem;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .task-card:hover .icon-box {
+      transform: scale(1.06);
+      background: #fbcfe8;
+    }
+
+    .task-info h2 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .task-info p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    .portal-footer {
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      border-top: 1px solid #fce7f3;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Responsif Mobile */
+    @media (max-width: 680px) {
+      .portal-header {
+        padding: 36px 20px;
+      }
+
+      .portal-header h1 {
+        font-size: 1.65rem;
+      }
+
+      .portal-body {
+        padding: 22px 18px;
+      }
+
+      .task-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .task-card.featured-center {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Template SVG Kupu-Kupu (dipakai ulang via <use>) -->
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <g id="butterfly-pink" viewBox="0 0 64 64">
+        <path d="M32 30 C24 14, 6 10, 8 25 C9 33, 21 34, 30 33 C21 36, 12 43, 17 50 C22 56, 30 47, 32 36 Z" fill="#f472b6"/>
+        <path d="M32 30 C40 14, 58 10, 56 25 C55 33, 43 34, 34 33 C43 36, 52 43, 47 50 C42 56, 34 47, 32 36 Z" fill="#ec4899"/>
+        <circle cx="17" cy="24" r="3" fill="#fbcfe8"/>
+        <circle cx="47" cy="24" r="3" fill="#fbcfe8"/>
+        <ellipse cx="32" cy="34" rx="2.4" ry="12" fill="#831843"/>
+        <path d="M31 23 C28 17, 25 16, 23 17 M33 23 C36 17, 39 16, 41 17" stroke="#831843" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </g>
+
+      <g id="butterfly-white" viewBox="0 0 64 64">
+        <path d="M32 30 C24 14, 6 10, 8 25 C9 33, 21 34, 30 33 C21 36, 12 43, 17 50 C22 56, 30 47, 32 36 Z" fill="#ffffff"/>
+        <path d="M32 30 C40 14, 58 10, 56 25 C55 33, 43 34, 34 33 C43 36, 52 43, 47 50 C42 56, 34 47, 32 36 Z" fill="#ffe4f2"/>
+        <ellipse cx="32" cy="34" rx="2.2" ry="11" fill="#ffffff"/>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- Kupu-kupu melayang di background -->
+  <svg class="bg-butterfly b1" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+  <svg class="bg-butterfly b2" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+  <svg class="bg-butterfly b3" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+  <svg class="bg-butterfly b4" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+
+  <!-- Kartu Utama Portal -->
+  <main class="portal-container">
+    <!-- Header -->
+    <header class="portal-header">
+      <svg class="header-deco left" viewBox="0 0 64 64"><use href="#butterfly-white"/></svg>
+      <svg class="header-deco right" viewBox="0 0 64 64"><use href="#butterfly-white"/></svg>
+      <svg class="header-deco top-right" viewBox="0 0 64 64"><use href="#butterfly-white"/></svg>
+
+      <div class="header-title-wrap">
+        <svg width="32" height="32" viewBox="0 0 64 64"><use href="#butterfly-white"/></svg>
+        <h1>Portal Tugas</h1>
+        <svg width="32" height="32" viewBox="0 0 64 64" style="transform: scaleX(-1);"><use href="#butterfly-white"/></svg>
+      </div>
+      <p>Pilih salah satu menu di bawah untuk membuka halaman tugas</p>
+    </header>
+
+    <!-- Daftar Menu Tugas -->
+    <section class="portal-body">
+      <div class="task-grid">
+
+        <!-- Tugas 1 -->
+        <a href="tugas1.html" class="task-card">
+          <svg class="card-butterfly" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+          <div class="icon-box">👤</div>
+          <div class="task-info">
+            <h2>Tugas 1: Biodata Diri</h2>
+            <p>Data pribadi, foto, dan video</p>
+          </div>
+        </a>
+
+        <!-- Tugas 2 -->
+        <a href="tugas2.html" class="task-card">
+          <svg class="card-butterfly" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+          <div class="icon-box">📝</div>
+          <div class="task-info">
+            <h2>Tugas 2: Form Pengisian Biodata</h2>
+            <p>Isi data diri melalui formulir</p>
+          </div>
+        </a>
+
+        <!-- Tugas 3 -->
+        <a href="tugas3.html" class="task-card">
+          <svg class="card-butterfly" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+          <div class="icon-box">📊</div>
+          <div class="task-info">
+            <h2>Tugas 3: Survey Kepuasan OVO</h2>
+            <p>Berikan penilaian dan masukan</p>
+          </div>
+        </a>
+
+        <!-- Tugas 4 -->
+        <a href="tugas4.html" class="task-card">
+          <svg class="card-butterfly" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+          <div class="icon-box">🎓</div>
+          <div class="task-info">
+            <h2>Tugas 4: Tugas Akhir</h2>
+            <p>Halaman tugas akhir</p>
+          </div>
+        </a>
+
+        <!-- Tugas 5 -->
+        <a href="tugas5.html" class="task-card featured-center">
+          <svg class="card-butterfly" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+          <div class="icon-box">👩‍👧‍👦</div>
+          <div class="task-info">
+            <h2>Tugas 5: Tugas Kelompok</h2>
+            <p>Kolaborasi dan proyek bersama tim</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="portal-footer">
+      <svg width="16" height="16" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+      <span>&copy; 2026 Portal Tugas</span>
+      <svg width="16" height="16" viewBox="0 0 64 64"><use href="#butterfly-pink"/></svg>
+    </footer>
+  </main>
+
+</body>
+</html>
