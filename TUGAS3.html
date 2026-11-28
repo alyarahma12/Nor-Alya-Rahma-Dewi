@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tugas 3 - Survey Kepuasan Pengguna OVO</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+    color: #1f2937;
+  }
+  .portal {
+    width: 100%;
+    max-width: 980px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, .12);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
+    color: #fff;
+    text-align: center;
+    padding: 36px 24px;
+  }
+  .header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .header p {
+    opacity: .92;
+    font-size: 15px;
+  }
+  .top-actions {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: .2s ease;
+  }
+  .back-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+  }
+  .content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .section-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    transition: .2s ease;
+  }
+  .section-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, .08);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .section-title-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: #dbeafe;
+  }
+  .section-title-group h2 {
+    font-size: 18px;
+    margin-bottom: 3px;
+    color: #1f2937;
+  }
+  .section-title-group p {
+    font-size: 13px;
+    color: #64748b;
+  }
+  .ext-link {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #2563eb;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: .2s ease;
+  }
+  .ext-link:hover {
+    background: #dbeafe;
+  }
+  .frame-wrap {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .frame-wrap iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  .frame-form { height: 700px; }
+  .frame-sheet { height: 480px; }
+  .frame-looker { height: 580px; }
+  footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 13px;
+    color: #64748b;
+    border-top: 1px solid #e5e7eb;
+  }
+  @media (max-width: 640px) {
+    body { padding: 14px; }
+    .content { padding: 16px; }
+    .section-card { padding: 14px; }
+    .frame-form { height: 620px; }
+    .frame-sheet { height: 400px; }
+    .frame-looker { height: 460px; }
+  }
+</style>
+</head>
+<body>
+  <main class="portal">
+    <section class="header">
+      <h1>📊 Tugas 3: Survey Kepuasan Pengguna OVO</h1>
+      <p>Pengisian kuesioner, rekap data responden real-time, dan visualisasi hasil survey</p>
+      <div class="top-actions">
+        <a class="back-btn" href="index.html">← Kembali ke Portal Tugas</a>
+      </div>
+    </section>
+
+    <section class="content">
+      <!-- 1. GOOGLE FORM -->
+      <article class="section-card">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="icon">📝</span>
+            <div>
+              <h2>Formulir Survey Tingkat Kepuasan</h2>
+              <p>Silakan isi kuesioner kepuasan pengguna OVO di bawah ini</p>
+            </div>
+          </div>
+          <a class="ext-link" href="https://docs.google.com/forms/d/e/1FAIpQLSezxOHB7f3GPIGnk4fjtgFXgtkJxw_lzYmPbGVseYg4cDT8-A/viewform?usp=sharing&ouid=105407487912788051624" target="_blank" rel="noopener noreferrer">
+            Buka Form di Tab Baru ↗
+          </a>
+        </div>
+        <div class="frame-wrap">
+          <iframe
+            class="frame-form"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSezxOHB7f3GPIGnk4fjtgFXgtkJxw_lzYmPbGVseYg4cDT8-A/viewform?embedded=true"
+            loading="lazy"
+            title="Google Form Survey Kepuasan Pengguna OVO">
+            Memuat formulir...
+          </iframe>
+        </div>
+      </article>
+
+      <!-- 2. GOOGLE SPREADSHEET -->
+      <article class="section-card">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="icon">📑</span>
+            <div>
+              <h2>Data Responden (Google Spreadsheet)</h2>
+              <p>Tampilan langsung hasil tanggapan dari pengisian Google Form</p>
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrap">
+          <iframe
+            class="frame-sheet"
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT1WnHR4K3W_1xji7cU0G-2U8VwfkqvVGPG4PfkbGZbrGyMrKzgXL3IhgmOEjAdPBmNDsQolB2kdcoR/pubhtml?widget=true&amp;headers=false"
+            loading="lazy"
+            title="Spreadsheet Hasil Survey Kepuasan OVO">
+          </iframe>
+        </div>
+      </article>
+
+      <!-- 3. LOOKER STUDIO -->
+      <article class="section-card">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="icon">📈</span>
+            <div>
+              <h2>Visualisasi Data (Looker Studio)</h2>
+              <p>Dashboard analisis dan ringkasan grafik tingkat kepuasan pengguna OVO</p>
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrap">
+          <iframe
+            class="frame-looker"
+            src="https://datastudio.google.com/embed/reporting/e474aeb8-984c-414a-8494-dacc6302d776/page/page_12345"
+            allowfullscreen
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+            loading="lazy"
+            title="Visualisasi Looker Studio Survey OVO">
+          </iframe>
+        </div>
+      </article>
+    </section>
+
+    <footer>© 2026 Portal Tugas</footer>
+  </main>
+</body>
+</html>
